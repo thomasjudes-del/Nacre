@@ -1,3 +1,9 @@
+## 14 novembre : passerelle suspendue après le lac forestier
+
+La lisière se prolonge par un ravin : dérouler le treuil pour abaisser le tablier, traverser avant son rappel lent, puis serrer le frein sur la rive opposée pour sécuriser le retour. Sixième checkpoint après le lac, anciennes sauvegardes conservées. 289 tests réussis, parcours connu complet de 50,10 s sans capture. Blender CPU inspecté ; nouvel essai cloud refusé par WebGL (GL_VENDOR Disabled). Pas de test iPhone ni d’écoute critique. Le prologue reste court et demande encore un enrichissement important.
+
+---
+
 ## 14 novembre : bassin et contrepoids dans la serre retrouvée
 
 Nouvelle énigme jouable entre la salle d’écoute et l’offrande : remplir pour soulever une passerelle, traverser, transférer l’eau au contrepoids pour lever la porte. Vanne réversible pour revenir ; berges et porte solides, reprise locale. 286 tests réussis ; parcours complet en solution connue de 60,65 s, zéro chute. Rendu Blender CPU inspecté, WebGL cloud toujours refusé (GL_VENDOR Disabled), aucun essai iPhone ni écoute critique. Ce passage reste court. Détails dans docs/ITERATION.md.

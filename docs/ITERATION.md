@@ -1,3 +1,27 @@
+# 14 novembre, 21 h : passage suspendu dans la lisière
+
+Source Sites 67 récupérée via le workflow, commit 8a6099adf75a89e83233259d207938547c572d2b, dépôt propre et verrou nominatif. Objectif : ajouter une séquence propre à la forêt après la fuite et le lac, avec manipulation, anticipation et retour possible.
+
+## Changement effectif
+
+La route se prolonge jusqu’à x8660. Après la remontée du lac, un sixième checkpoint précède un treuil et un ravin. Maintenir l’action déroule la passerelle de bois suspendue ; relâcher laisse le rappel la relever lentement. La pente visible est celle du sol de collision. Traverser puis serrer le frein de l’autre rive verrouille le passage pour le retour. Les deux berges sont solides. Une chute ramène sur la rive du treuil sans refaire la poursuite ni la nage. Les sauvegardes de checkpoints 0–5 restent compatibles ; le checkpoint 6 reconstruit un mécanisme réessayable. Les mains visent le volant pendant sa manipulation. La traversée guidée utilise maintenant son propre pilote forestier au lieu du pilote Convoi dans l’outil de contrôle.
+
+## Sources et observation
+
+https://blog.playdead.com/articles/inside_presentations/inside_publications.html relu : index documentaire primaire, notamment A Game That Listens et Unbreaking Immersion. Aucun nouveau film visionné ni son écouté. La couverture antérieure des 68 photogrammes forestiers reste dans FOREST-REFERENCE.md ; aucun nouveau timecode revendiqué. Application : conséquence physique visible et répit après poursuite. Ce treuil est un mécanisme original NACRE, pas une reproduction attribuée à INSIDE.
+
+## Validation et limites
+
+289 tests Node passent, journal validation-forest-bridge.txt. Parcours forestier entier simulé sans capture, 50,10 s en solution connue contre 41,65 s auparavant : +8,45 s, pas une mesure de découverte ni un niveau long. Extension à 30/60 Hz, frein et retour, pause, rappel après lâcher, chute et reprise locale, anciens checkpoints, correspondance pente/rendu et matrices finies. Une erreur du pilote à 30 Hz (arrêt hors de portée après redémarrage) a été reproduite puis corrigée en mémorisant l’abaissement complet. Les autres parcours restent dans la suite.
+
+Rendu Blender CPU à x7900 inspecté et conservé dans captures/forest-bridge-cpu.png : tablier, câbles, berges et personnage dans le même cadre. Nouvelle tentative dans le navigateur cloud sur preview géré : GL_VENDOR Disabled, pas de contexte WebGL. Aucun jeu GPU, FPS, iPhone physique ou mix audio perceptif validé. Le rappel du tablier est une animation cinématique déterministe, pas un solveur de cordes/rigid bodies. Les contacts précis des mains et la lisibilité du frein restent à juger dans le moteur réel.
+
+## Suite
+
+Cette extension ajoute une mécanique à la forêt mais n’achève pas l’ouverture ambitieuse demandée. Les premiers segments adaptent encore le Convoi ; le décor reste géométrique et le rythme court. Prochaine livraison majeure : développer l’observation et la menace dans la première moitié forestière avec une conséquence physique originale, plutôt qu’ajouter d’autres treuils ou de la marche. Consolider la composition organique et le jeu corporel des manipulations. Préserver serre, hydraulique, trois mondes, sauvegardes, lumière et premiers plans. Sites privé et miroir public autorisé ; Noël intact, aucune nouvelle automatisation.
+
+---
+
 # 14 novembre, séquence hydraulique réversible dans la serre 3D
 
 Reprise de Sites 66 (7beb1394e5d4a5c269afb3bc88105fc86e07be99) par le workflow source, dépôt propre et verrou nominatif. Objectif : remplacer le trajet simple entre salle d’écoute et offrande par une énigme physique complète sans rallonger artificiellement la carte.
