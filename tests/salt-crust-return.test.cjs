@@ -1,0 +1,6 @@
+const test=require('node:test'),a=require('node:assert/strict'),L=require('../dist/world-logic.js');
+function lower(t=1.8){const s=L.createState();Object.assign(s,{x:8245,y:600,onGround:true,checkpoint:4,crustTime:t,shutterLatched:true,shutter:1});return s;}
+test('return from lower causeway meets the descending slab face before crossing',()=>{const s=lower();for(let i=0;i<12;i++)L.step(s,{axis:-1});a(s.x>=8234,`body entered slab at ${s.x}`);a.equal(s.y,600);a.equal(s.deaths,0);});
+test('waiting for level ground opens the return without a jump or reset',()=>{const s=lower();for(let i=0;i<120;i++)L.step(s,{axis:-1});a(s.x<8220);a.equal(s.y,600);a.equal(s.respawn,0);});
+test('jumping clears the solid edge and lands on the slab',()=>{const s=lower();for(let i=0;i<90;i++)L.step(s,{axis:i<40?-1:0,jump:i===0});a(s.x<8220);a(s.onGround);a.equal(s.y,600);a.equal(s.deaths,0);});
+test('walking off then immediately turning back cannot enter under the slab at 30 or 60 Hz',()=>{for(const dt of [1/30,1/60]){const s=lower(.5);Object.assign(s,{x:8150,y:510});for(let t=0;t<.75;t+=dt)L.step(s,{axis:1},dt);a(s.x>8220);for(let t=0;t<1.5;t+=dt){L.step(s,{axis:-1},dt);if(s.y>L.crust.sample(s).y+1)a(s.x>=8234);}a.equal(s.deaths,0);}});
