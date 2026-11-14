@@ -1,3 +1,17 @@
+# 14 novembre, reprise 16 h : traction de caisse contre le mur
+
+Source Sites 62 récupérée via le workflow, commit 2d556e2cc9f37e4b4afcbdc4ae78d6bb642cac08. Dépôt propre et verrou nominatif. Avant extension, défaut physique reproduit en tirant la caisse depuis son côté droit vers le mur : le personnage s’arrêtait à x2578 mais la caisse avançait jusqu’à x2538, réduisant leur séparation de 65 à 40 unités et pénétrant dans le corps. Trois tests échouaient avant correction.
+
+Le blocage du corps se transmet maintenant à la caisse tenue : sa position conserve la distance de prise et sa vitesse est recalculée sur son déplacement effectif. À l’arrêt contre le mur la caisse reste à x2513, personnage x2578. Repartir à gauche, relâcher ou sauter reste possible. La correction est limitée au conservatoire ; aucun changement du Convoi peint/V5. Le saut à deux pouces, la balance sans centrage parfait, la floraison et les corrections des arches/gardien sont préservés.
+
+263 tests réussis dans validation-crate-contact.txt. Trois nouveaux scénarios couvrent toute l’approche à 30/60 Hz, le maintien contre le mur, le retour, le saut, le lâcher et la récupération du checkpoint. Les parcours complets des trois passages et les sauvegardes restent couverts. Validation par simulation uniquement ; aucun nouveau rendu Blender, essai WebGL, écoute critique ou test iPhone. Les maillages sont inchangés ; leurs positions suivent la correction physique. Dernier contrôle navigateur de la passe 14 h : WebGL 2 indisponible, sans nouvelle conclusion matérielle aujourd’hui.
+
+Sources relues : https://blog.playdead.com/articles/inside_presentations/inside_publications.html (notice animation interactive), https://origin.ludo.guide/guide/inside/chapter-24 (texte de la séquence bassin/clôture, manipulation et retour). Lecture textuelle seulement, pas de vidéo, photogrammes ou timecodes nouveaux. Application propre à NACRE : une manipulation doit rester cohérente lors d’un retour ou contre un obstacle, pas uniquement dans la solution idéale. Aucun asset Playdead importé. Cette relecture n’élargit pas la couverture étudiée du jeu.
+
+Le mandat de trois niveaux distincts, la priorité aux bugs réels, Sites privé et la copie publique autorisée restent conservés. Aucun achat, nouvelle automation ou modification de Noël/social. Ce correctif supprime une pénétration ; il n’allonge pas les trois prototypes, qui restent courts. Prochaine priorité : réaliser la séquence physique réversible du conservatoire, avec conséquence visible et refuge utile. Bilan cumulatif dans ETAT-JOUABLE.md.
+
+---
+
 # 14 novembre, reprise 15 h : saut en quittant la caisse
 
 Source Sites 61 récupérée via le workflow (ec31b5a02abf579828c081787df07150e3342277), dépôt propre, verrou nominatif. Objectif modifié après reproduction d’un blocage de commande : maintenir action avec le pouce droit puis demander le saut gardait la prise et annulait le saut. Le pilote idéal relâchait action ; un parcours conservant action lors des sauts ne terminait pas. Six tests échouaient avant correction.
