@@ -1,3 +1,7 @@
+## 14 novembre : espace sonore
+
+Les décharges de la citerne ont deux sources sonores indépendantes, avec direction et distance continues. Résonance selon le lieu, pas sur bois dans la nacelle et pierre après la croûte. 250 tests réussis ; Web Audio contrôlé, sans écoute critique ni validation WebGL. Voir docs/SPATIAL-FOLEY.md et docs/ETAT-JOUABLE.md.
+
 # NACRE : version de test publique
 
 - Jouer : https://confluenceofminds.com/nacre/play/

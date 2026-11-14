@@ -1,3 +1,9 @@
+## 14 novembre : décharges et acoustique spatiale
+
+Deux sources indépendantes pour les décharges de la citerne, annonce depuis l’approche sèche, direction et atténuation continues. Résonance selon le lieu, bois sur nacelle et pierre après la croûte de sel. 250 tests réussis ; quinze échantillons décodés et graphe Web Audio contrôlé dans Chromium. Aucune écoute critique, WebGL toujours indisponible. Voir docs/SPATIAL-FOLEY.md et docs/ETAT-JOUABLE.md pour la portée et la suite.
+
+---
+
 ## 14 novembre : causalité sonore corrigée
 
 La musique de rafale s’efface progressivement sous les abris, y compris l’abri mobile. Plus de nouveaux grincements dus au seul maintien d’une commande immobile ; effort respiratoire lié au déplacement réel et à la poussée. 234 tests réussis, parcours et reprises conservés. WebGL cloud indisponible ; aucune écoute critique. Pas de nouveau niveau dans cette passe, extension après les refuges toujours prioritaire. Voir ITERATION.md pour les sources et limites.
