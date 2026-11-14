@@ -1,3 +1,11 @@
+## 14 novembre au soir : deux passages et des cuves corrigées
+
+La serre peinte complète est désormais jouable en 3D dans `serre.html` : miroir, passerelles, effondrement, chariot, nacelle, écluse et salle d’écoute. `lisiere.html` ajoute une forêt distincte avec chiens articulés, aboiements, refuge et lac, en adaptant le parcours du Convoi. Le remplissage des deux cuves suit maintenant leur niveau d’eau réel. Ce sont encore des prototypes courts, pas une reproduction aboutie d’INSIDE.
+
+280 tests réussis, parcours complets et reprises simulés. Rendus de contrôle Blender CPU ; WebGL cloud indisponible, aucun essai iPhone physique ni écoute critique. Détails, sources et prochaine étape dans docs/ITERATION.md et docs/FOREST-REFERENCE.md.
+
+---
+
 ## 14 novembre : décharges et acoustique spatiale
 
 Deux sources indépendantes pour les décharges de la citerne, annonce depuis l’approche sèche, direction et atténuation continues. Résonance selon le lieu, bois sur nacelle et pierre après la croûte de sel. 250 tests réussis ; quinze échantillons décodés et graphe Web Audio contrôlé dans Chromium. Aucune écoute critique, WebGL toujours indisponible. Voir docs/SPATIAL-FOLEY.md et docs/ETAT-JOUABLE.md pour la portée et la suite.

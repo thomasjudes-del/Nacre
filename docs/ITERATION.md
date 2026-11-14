@@ -1,3 +1,30 @@
+# 14 novembre au soir : serre complète en 3D, lisière et remplissage des cuves
+
+Source Sites 65 reprise par le workflow, commit 5c829dcb343b473f50eefcf34063f0b1ef3e054f. Dépôt initialement propre, verrou nominatif. Objectif prioritaire révisé par Thomas : sortir des micro-correctifs, porter réellement la serre peinte, livrer une étude forestière et corriger les effets incohérents de remplissage.
+
+## Changement effectif
+
+- **Serre retrouvée (`serre.html`)** : toute la progression de la serre peinte passe dans une scène Three.js dédiée. Graine cachée devant l’iris, miroir à rappel, deux racines et passerelles temporaires, iris du pont, effondrement et saut, chariot sur plaque, rappel et montée de nacelle, écluse, deux résonateurs et surveillance, offrande et floraison. Voyageuse skinnée, prise du miroir/chariot, graine tenue, architecture en profondeur, matières locales, oiseau perché puis envol à l’approche. Charge du chariot par chevauchement réel de 60 %, plaque visible de 110 unités. Écluse solide dans les deux sens, hauteur libre et dessous pris en compte. Logique isolée dans serre-logic.js : la version peinte et le trailer ne changent pas.
+- **La lisière (`lisiere.html`)** : forêt en profondeur, racines retournées à couvert, caisson et talus, garde et poursuite, refuge sous un arbre, sortie surveillée, deux chiens originaux articulés, fuite vers l’eau, nage et remontée. Un oiseau s’envole à l’approche. Les chiens arrivent depuis l’arrière-plan au lieu d’apparaître au contact ; leurs sauts sont calculés séparément. Le phare suit le véhicule. Ce passage adapte explicitement la logique et la disposition du Convoi : il ne contient pas une nouvelle famille d’énigmes et ne reproduit pas les sept premières minutes d’INSIDE. C’est une étude courte et distincte, pas l’achèvement de la demande.
+- **Cuves** : le jet de la réserve embarquée rejoint sa surface réelle, avec débit perdu quand elle n’est que partiellement sous le jet. Eau translucide, surface séparée, flotteur et vide cohérents. La première réserve a une fenêtre frontale ; son volume d’eau et sa jauge suivent le remplissage réel, pas la pression instantanée.
+- Bruitages locaux enregistrés dans les nouveaux passages ; aboiements CC0 de Brandon Morris, source et transformation dans RECORDED-FOLEY.md. Musique ponctuelle, forêt plus sèche acoustiquement, sauvegardes propres aux nouveaux passages et réglages persistants. Pas d’écoute critique revendiquée.
+
+## Sources étudiées et observation réelle
+
+Voir **FOREST-REFERENCE.md** : clip primaire Playdead Forest de 68,2667 s observé par **68 photogrammes à 1 Hz**, séquences et timecodes consignés. Ni visionnage continu ni écoute de la bande-son. Documentation audio primaire et soluce écrite complémentaires ; tentative de lecteur GameSpot infructueuse. Leçons appliquées : annonce avant contact, alternance attente/déplacement/fuite, refuge identifiable, eau qui interrompt la poursuite. Aucun asset, décor ou musique Playdead importé.
+
+## Contrôles et limites
+
+**280 tests Node réussis** dans validation-serre-forest.txt. Routes complètes simulées de la serre (52,47 s, zéro chute), de la forêt (41,65 s, zéro capture), du conservatoire et des deux mondes. Ce sont des durées en solution connue, pas des durées de découverte. Échec et reprise, recharge des quatre checkpoints de serre, checkpoints forêt, retour vers le danger, caisse dans les deux sens et saut depuis la prise, chariot décalé ±40, écluse aller-retour et jet à vide/partiel/plein. Matrices des acteurs et chiens, positions des plateformes et cadrages contrôlés sur CPU.
+
+Rendus **Blender CPU** inspectés : serre au miroir et à la nacelle, forêt à couvert et en poursuite, cuve à 35 %. Après inspection : panneaux de serre espacés, couvert forestier moins rectangulaire, éclairage de silhouette augmenté. Trois références finales sont conservées dans captures/serre-port-cpu.png, forest-cover-cpu.png et tank-fill-cpu.png. Elles ne sont pas des captures WebGL. Le navigateur cloud a refusé WebGL avec GL_VENDOR Disabled ; un nouvel essai en fin de passe a aussi échoué au délai de connexion. Aucun jeu réel navigateur, contrôle iPhone physique, FPS ni qualité sonore perceptive validés. Les exports Blender ne reproduisent pas exactement brouillard, transparences et éclairage Three.
+
+## Reprise
+
+Les nouveaux passages enrichissent le contenu accessible mais restent courts et stylisés. La forêt réutilise les étapes du Convoi et les décors demandent encore une composition plus organique. Prochaine priorité substantielle : prolonger la serre par une énigme physique réversible issue de l’écluse (écoulement, contrepoids et trajet de retour), puis développer la forêt au-delà du parcours Convoi. Ne pas qualifier le résultat de reproduction aboutie d’INSIDE. Vérifier le rendu et le mix dans un navigateur WebGL dès que disponible. Garder les correctifs d’arches, gardien, balance, caisse et berge. Mandat complet dans MANDAT-THOMAS-14-NOV.md ; reprise horaire existante actualisée sans doublon, sans promesse de quatre heures continues. Sites privé ; miroir public autorisé sur Nacre et confluenceofminds.com. Noël et publications sociales intacts.
+
+---
+
 # 14 novembre, reprise 18 h : retour vers la berge d’entrée
 
 Source Sites 64 récupérée via le workflow, commit 41b9b91eb71e79781e250a00c412afeae2806cab ; dépôt propre et verrou nominatif. Deux tests reproduisent la limite invisible du bassin à gauche : la nage restait bloquée sans pouvoir prendre le quai. Le gardien attend cependant à cet endroit ; ce retour n’est donc pas un refuge sûr.

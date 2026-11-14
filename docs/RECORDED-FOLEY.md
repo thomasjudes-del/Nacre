@@ -1,3 +1,11 @@
+## 14 novembre : chiens du prologue forestier
+
+`dist/assets/foley/dog.mp3` : Brandon Morris (HaelDB), « Dog barking mono », CC0 proposée par la page auteur https://opengameart.org/content/dog-barking-mono . Fichier source https://opengameart.org/sites/default/files/dog_barking_mono.wav , WAV mono 44,1 kHz, 2,038594 s, 179848 octets. Quatre aboiements enregistrés. Conversion locale MP3, filtres 75–6500 Hz et courts fondus, aucun son Playdead. La première annonce est discrète depuis le sous-bois, puis sa position suit le chien et s’atténue en s’éloignant et dans l’eau. Aucun fond de pluie/vent permanent ajouté. Décodage vérifié ; aucune écoute critique revendiquée.
+
+SHA256 source : `bbd0f908b3514dd3bd7d2bc04dcf64f8d360a161e7f43cac5d6761e7add79451`.
+
+---
+
 ## 14 novembre : décharges et acoustique spatiale
 
 Deux sources indépendantes pour les décharges de la citerne, annonce depuis l’approche sèche, direction et atténuation continues. Résonance selon le lieu, bois sur nacelle et pierre après la croûte de sel. 250 tests réussis ; quinze échantillons décodés et graphe Web Audio contrôlé dans Chromium. Aucune écoute critique, WebGL toujours indisponible. Voir docs/SPATIAL-FOLEY.md et docs/ETAT-JOUABLE.md pour la portée et la suite.
