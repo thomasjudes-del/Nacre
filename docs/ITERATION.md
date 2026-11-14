@@ -1,3 +1,17 @@
+# 14 novembre, reprise 15 h : saut en quittant la caisse
+
+Source Sites 61 récupérée via le workflow (ec31b5a02abf579828c081787df07150e3342277), dépôt propre, verrou nominatif. Objectif modifié après reproduction d’un blocage de commande : maintenir action avec le pouce droit puis demander le saut gardait la prise et annulait le saut. Le pilote idéal relâchait action ; un parcours conservant action lors des sauts ne terminait pas. Six tests échouaient avant correction.
+
+Le saut prend désormais priorité sur la prise dans le conservatoire : il libère la caisse pour permettre le saut ou la prise du rebord. La commande reçue n’est pas modifiée en place ; seule sa copie transmise au moteur ignore action sur cette impulsion. Poussée, traction et inertie restent inchangées. Aucun changement au Convoi peint, à ses règles ou au trailer V5. La balance accepte toujours les placements décalés. Aucun nouveau niveau ni énigme ajouté.
+
+260 tests réussis dans validation-grip-jump.txt, dont six nouveaux scénarios : saut depuis les deux côtés à 30/60 Hz, action et saut simultanés dès la première prise, parcours complet avec action maintenue lors de chaque saut. À 30 Hz l’approche peut amorcer la remontée sur la caisse dès la première frame ; le test accepte cette transition physique et vérifie aussi l’événement de saut. Reprises, sauvegardes et parcours des trois passages restent couverts par la suite existante. Validation de simulation uniquement : aucun nouvel essai WebGL, écoute sonore, rendu Blender ou iPhone dans cette passe. Géométrie et éclairage inchangés ; la dernière vérification navigateur (passe 14 h) refusait WebGL 2.
+
+Sources relues : index primaire https://blog.playdead.com/articles/inside_presentations/inside_publications.html (notice animation interactive) et soluce https://origin.ludo.guide/guide/inside/chapter-24 (alternance manipulation, fuite et retour par la clôture). Texte seulement, aucune vidéo visionnée, transcription, photogramme ou timecode nouveau. Leçon appliquée propre à NACRE : permettre de quitter une manipulation par le geste de déplacement demandé, sans exiger un ordre de relâchement des pouces. Cette règle n’est pas présentée comme un comportement observé d’INSIDE. Couverture complète de ses séquences toujours à faire.
+
+Mandat conservé : trois ambiances 3D, rythme contemplatif et physique, corrections avant extension, Sites privé et miroir public autorisé ; aucun achat, nouvelle automation ni modification sociale/Noël. Prochaine priorité inchangée : séquence physique complète et réversible du conservatoire. Les trois prototypes restent courts ; cette correction de commande ne constitue pas leur extension. Bilan cumulatif dans ETAT-JOUABLE.md.
+
+---
+
 # 14 novembre, reprise 14 h : rencontre vivante dans la baie
 
 Source Sites 60 récupérée avec le workflow, commit 4597f3d3d9ee148f3ea1fec72ccac50e5cc48f7a. Dépôt propre et verrou nominatif avant édition. Objectif borné : donner une réponse visible à l’arrivée dans le répit final du conservatoire, sans ajouter de marche ni imposer une attente.
