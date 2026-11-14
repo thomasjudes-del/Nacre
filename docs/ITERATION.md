@@ -1,3 +1,29 @@
+# 14 novembre, séquence hydraulique réversible dans la serre 3D
+
+Reprise de Sites 66 (7beb1394e5d4a5c269afb3bc88105fc86e07be99) par le workflow source, dépôt propre et verrou nominatif. Objectif : remplacer le trajet simple entre salle d’écoute et offrande par une énigme physique complète sans rallonger artificiellement la carte.
+
+## Changement jouable
+
+À la sortie de la salle d’écoute, maintenir l’action près du volant gauche alimente un bassin : jet raccordé à la surface, volume qui monte et passerelle flottante qui suit exactement le niveau physique. Traverser puis inverser la vanne de droite transfère cette eau dans une réserve suspendue. Sa descente relève la porte de sortie. L’eau transférée est conservée ; inverser à nouveau rend l’eau au bassin et restaure le passage de retour. Le remplissage initial apporte de l’eau neuve, sans règle arbitraire de conservation à cette arrivée.
+
+Le bassin vide entraîne une chute et une reprise locale à x6020. Les berges restent solides quand la passerelle est basse ; un remplissage partiel permet encore de sauter pour sortir. Porte solide aller-retour, dessous qui arrête le saut, fermeture retenue si le passage est occupé. Les anciennes sauvegardes restent rechargeables, commandes et version peinte conservées. Bruitages de mécanisme existants liés aux mouvements effectifs de l’eau et de la porte.
+
+## Source et méthode
+
+https://blog.playdead.com/articles/inside_presentations/inside_publications.html : lecture de l’index primaire, notices A Game That Listens et Unbreaking Immersion. Documentation textuelle uniquement, aucun nouveau visionnage vidéo, photogramme, timecode ou écoute dans cette passe. Application : faire correspondre mouvement visible, conséquence physique et retour sonore ; la mécanique hydraulique est une création NACRE, pas une énigme prétendument observée dans cette source. La couverture forestière antérieure reste précisément décrite dans FOREST-REFERENCE.md.
+
+## Contrôles
+
+286 tests Node réussis dans validation-serre-hydraulic.txt, dont six nouveaux tests. Parcours complet serre en solution connue : 60,65 s et zéro chute, contre 52,47 s auparavant. Gain de 8,18 s dans ce pilote qui connaît la solution, pas une mesure de première découverte et pas un niveau long. Remplissage, transfert et retour à 30/60 Hz ; pause, conservation hors alimentation, chute/reprise, saut contre les berges et sous la porte, fermeture occupée, anciennes sauvegardes et états partiels rechargés. Les parcours existants de la forêt, du conservatoire, de la mer de sel et de la citerne restent couverts par la suite.
+
+Rendu Blender CPU à x6410 inspecté et conservé dans captures/serre-hydraulic-cpu.png : bassin/passerelle, volant et contrepoids lisibles dans le même cadre, silhouette visible. Ce n’est pas une capture WebGL. Nouvel essai réel du navigateur cloud sur le preview géré : bouton désactivé, THREE.WebGLRenderer refuse le contexte avec GL_VENDOR Disabled. Aucun contournement, essai iPhone physique, mesure FPS ou écoute critique. Les différences de transparence/éclairage entre Blender et Three restent une limite.
+
+## Défauts et prochaine livraison
+
+Le port de serre et cette nouvelle énigme sont livrables, mais l’ensemble reste court. Les volants n’ont pas encore de prise des mains dédiée ; le transfert est visible par les niveaux et le mouvement du contrepoids mais la conduite mérite un meilleur trajet visuel. La forêt adapte encore le Convoi. Prochaine passe majeure : enrichir la lisière par une séquence originale complète (observation, objet physique, poursuite puis refuge), sans recycler simplement les dangers du Convoi. Préserver lumières, premiers plans, oiseau, toutes les collisions corrigées et les sauvegardes. Sites privé, sources et miroir public autorisés ; aucune publication sociale ni nouvelle automatisation.
+
+---
+
 # 14 novembre au soir : serre complète en 3D, lisière et remplissage des cuves
 
 Source Sites 65 reprise par le workflow, commit 5c829dcb343b473f50eefcf34063f0b1ef3e054f. Dépôt initialement propre, verrou nominatif. Objectif prioritaire révisé par Thomas : sortir des micro-correctifs, porter réellement la serre peinte, livrer une étude forestière et corriger les effets incohérents de remplissage.

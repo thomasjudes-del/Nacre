@@ -10,5 +10,6 @@ else if(stage===6){input={left:true,veil:true};if(s.cartX<L.C.plate+5){input={};
 else if(stage===7){input.right=true;if(L.nearby(s)==='callLift'&&!route.calledLift){input.interact=true;route.calledLift=true;}if(s.x>s.cartX-115&&s.x<s.cartX+45)input.jump=true;if(s.x>4470)stage=8;}
 else if(stage===8||stage===9){const i=stage-8,target=L.C.signals[i];input.veil=true;if(s.x<target-15)input.right=true;else if(s.x>target+18)input.left=true;else{const phase=s.watchTime%7.2;input.veil=phase>2.35&&phase<6.1;}if(s.signals[i]>=1)stage++;}
 else if(stage===10){input.right=true;input.veil=!s.watchPassed;if(L.nearby(s)==='offer'){input={interact:true};stage=11;}}
+if(L.C.hydraulic&&stage===10&&s.x>6000&&s.x<6560){if(s.x<6120&&(s.pond||0)<.99){input=s.x<6060?{right:true}:{veil:true};}else if(s.x>6380&&s.x<6465&&!s.transfer){input=s.x<6400?{right:true}:{interact:true};}else if(s.x>=6465&&(s.hydroGate||0)<.95)input={};}
 route.stage=stage;return input;}
 if(typeof module!=='undefined')module.exports={policy};else window.NacreTestRoute={policy};

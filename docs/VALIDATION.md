@@ -1,3 +1,9 @@
+## 14 novembre : bassin et contrepoids dans la serre retrouvée
+
+Nouvelle énigme jouable entre la salle d’écoute et l’offrande : remplir pour soulever une passerelle, traverser, transférer l’eau au contrepoids pour lever la porte. Vanne réversible pour revenir ; berges et porte solides, reprise locale. 286 tests réussis ; parcours complet en solution connue de 60,65 s, zéro chute. Rendu Blender CPU inspecté, WebGL cloud toujours refusé (GL_VENDOR Disabled), aucun essai iPhone ni écoute critique. Ce passage reste court. Détails dans docs/ITERATION.md.
+
+---
+
 ## 14 novembre au soir : deux passages et des cuves corrigées
 
 La serre peinte complète est désormais jouable en 3D dans `serre.html` : miroir, passerelles, effondrement, chariot, nacelle, écluse et salle d’écoute. `lisiere.html` ajoute une forêt distincte avec chiens articulés, aboiements, refuge et lac, en adaptant le parcours du Convoi. Le remplissage des deux cuves suit maintenant leur niveau d’eau réel. Ce sont encore des prototypes courts, pas une reproduction aboutie d’INSIDE.
