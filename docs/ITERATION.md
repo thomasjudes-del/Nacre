@@ -1,3 +1,17 @@
+# 14 novembre, reprise 18 h : retour vers la berge d’entrée
+
+Source Sites 64 récupérée via le workflow, commit 41b9b91eb71e79781e250a00c412afeae2806cab ; dépôt propre et verrou nominatif. Deux tests reproduisent la limite invisible du bassin à gauche : la nage restait bloquée sans pouvoir prendre le quai. Le gardien attend cependant à cet endroit ; ce retour n’est donc pas un refuge sûr.
+
+Le conservatoire permet désormais la prise et la remontée vers la gauche. Anticipation des mains, traction du bassin et pied de soutien sont adaptés au côté du quai. La présence du gardien conserve sa conséquence : capture pendant le retour puis reprise au checkpoint 5. Aucune immunité ajoutée. Le trajet normal vers la droite, la balance, le saut depuis la caisse et le sillage restent préservés. Aucun changement au Convoi peint.
+
+270 tests réussis (validation-bank-return.txt). Deux scénarios isolent la locomotion à 30/60 Hz en éloignant le gardien dans le test seulement, puis vérifient retour, replongée et sortie droite sans mort. Un scénario conserve le gardien réel et vérifie capture/reprise ; un contrôle CPU vérifie le pied gauche au-dessus du quai. La suite complète conserve les parcours et sauvegardes des trois passages. Rendu Blender CPU inspecté : voyageuse au rebord et gardien présent sur la berge (captures/bank-return-cpu.png dans Sites). Ce n’est pas une capture WebGL. Nouveau contrôle Chromium : WebGL 2 indisponible, boutons de jeu désactivés. Aucun essai iPhone ni écoute critique.
+
+Sources lues : https://origin.ludo.guide/guide/inside/chapter-24 décrit les retours entre eau, chiens et clôture ; https://blog.playdead.com/articles/inside_presentations/inside_publications.html répertorie les présentations sur l’animation interactive. Lecture textuelle seulement, aucune nouvelle vidéo, transcription, photogramme ou timecode. Leçon appliquée : permettre le geste de retour et faire porter sa conséquence par le danger présent plutôt que par une limite invisible. Aucun asset Playdead. Cette relecture n’élargit pas la couverture vidéo.
+
+Ce changement ne constitue pas la nouvelle énigme attendue. Les trois passages restent courts. Prochaine priorité : séquence physique réversible avec refuge utile et conséquence visible, sans multiplier les petits correctifs sauf blocage réel. Mandat trois ambiances, Sites privé, copie publique autorisée, Noël/social hors périmètre ; aucune nouvelle automation ni achat.
+
+---
+
 # 14 novembre, reprise 17 h : sillage du bassin
 
 Source Sites 63 récupérée via le workflow, commit f425d55badacb155b5b2a034fd3a087e7fa6c718. Dépôt propre et verrou nominatif avant édition. Objectif : remplacer l’anneau de nage collé au personnage par une trace de son déplacement dans l’eau.
