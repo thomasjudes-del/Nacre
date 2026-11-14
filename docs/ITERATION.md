@@ -1,3 +1,17 @@
+# 14 novembre, reprise 14 h : rencontre vivante dans la baie
+
+Source Sites 60 récupérée avec le workflow, commit 4597f3d3d9ee148f3ea1fec72ccac50e5cc48f7a. Dépôt propre et verrou nominatif avant édition. Objectif borné : donner une réponse visible à l’arrivée dans le répit final du conservatoire, sans ajouter de marche ni imposer une attente.
+
+La floraison déjà présente s’ouvre progressivement après la remontée, lorsque le personnage approche (x > 7240). Ses coques s’écartent, le cœur devient plus émissif et quatorze graines flottent au-dessus. Au retour, elle se referme progressivement. Le joueur peut attendre, repartir ou terminer immédiatement ; aucun verrou de commande, changement de collision ou délai de sortie. Animation originale par déformation d’échelle des coques, pas simulation botanique. Pas de nouvelle lumière, texture, musique ou asset externe. La pause fige l’état ; une reprise au checkpoint réinitialise la rencontre. Les sauvegardes existantes restent acceptées.
+
+254 tests Node réussis, dont quatre nouveaux tests couvrant approche, attente, retour, pause, ancien état, reprise et parcours complet sans attente obligatoire. Contrôle de la géométrie Three sur CPU : transformations finies, ouverture et émission, volume hors de la voie. Deux références Blender à position identique comparent fermeture et ouverture. Ce sont des rendus CPU hors navigateur, pas des captures WebGL. Nouvel essai du conservatoire dans Chromium cloud : contexte WebGL 2 indisponible, jeu désactivé. Aucun essai iPhone, mesure de fluidité ou validation perceptive sonore. Détails et commandes dans BLOOM-ENCOUNTER.md, résultats dans validation-bloom-encounter.txt.
+
+Sources consultées : https://blog.playdead.com/articles/inside_presentations/inside_publications.html (notices Subtleties of INSIDE et Turn it Down 90%, lecture de l’index seulement) ; https://origin.ludo.guide/guide/inside/chapter-24 (texte de la soluce, chiens au fond, bassin et retour à la clôture, déjà étudié à la passe précédente). Aucune conférence ou vidéo visionnée, aucun photogramme ni timecode nouveau. Application de conception propre à NACRE : une petite réaction au joueur donne un motif de s’arrêter dans un répit après la menace. La floraison n’est pas empruntée à INSIDE. Couverture vidéo complète toujours non réalisée.
+
+Mandat de Thomas conservé : trois ambiances 3D distinctes, contemplation contrôlable, énigmes physiques et corrections des bugs réels avant extension, diffusion Sites privée et copie GitHub publique autorisée. Aucun achat, nouvel abonnement, automation ou changement social/Noël. Les corrections des arches, du gardien et de la balance sont préservées. Cette passe améliore un répit existant ; elle n’ajoute ni énigme ni niveau. Prochaine priorité : une séquence physique complète et réversible dans le conservatoire, avec refuge utile et conséquence visible. Les trois prototypes restent courts ; rythme, manipulations, matériaux et mix exigent encore des essais de vrais joueurs. Voir ETAT-JOUABLE.md.
+
+---
+
 # 14 novembre, reprise 13 h : espace sonore et lecture des décharges
 
 Source Sites 59 récupérée par le workflow, commit 5e314282773e572bbee4ebafae0d564324cca710 ; dépôt propre, verrou nominatif. Le fichier audio GitHub avait le même blob que Sites avant édition. Objectif : rendre la galerie de la citerne lisible à l’oreille depuis ses zones sèches et supprimer le changement arbitraire de source à x5500.
