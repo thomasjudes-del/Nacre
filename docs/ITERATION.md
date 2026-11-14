@@ -1,3 +1,29 @@
+# 14 novembre : audit des gestes de retour demandé par Thomas
+
+Reprise depuis Sites 69, de73091428e865e58c5b2247d3ca5070ce863f6d, récupérée via le workflow avant édition ; dépôt propre et verrou nominatif. Objectif : réparer plusieurs incohérences reproductibles de la serre, sans présenter les tests comme une validation artistique.
+
+## Défauts reproduits et corrections
+
+- Depuis x4440, marcher vers la terrasse : le personnage pénétrait la maçonnerie jusqu’à y684 avec onGround=true. Une rampe de pierre relie maintenant les deux niveaux, avec un sol continu aller-retour, attente et saut. Les anciennes sauvegardes du checkpoint 4480 sont remises sur le nouveau sol, sans recommencer la partie.
+- Bassin vide : à x6250 le personnage atteignait le plateau visible à y680 et mourait aussitôt au seuil global y675. Ce support est maintenant sûr. Deux échelles visibles permettent de remonter à gauche ou à droite en avançant vers la berge avec l’action maintenue. La remontée monte d’abord puis passe le rebord, sans traverser la paroi. Le remplissage reste nécessaire pour alimenter le contrepoids et ouvrir la porte ; l’exploration du fond ne contourne pas ce besoin.
+- Pendant la prise du chariot ou du miroir, la graine tenue réapparaissait au nid x470. Elle reste désormais près du corps, à la taille pendant les manipulations, et sa lampe suit sa position.
+- Le contrôle Blender du bassin vide a révélé que le plan d’eau décoratif général passait au-dessus du personnage et le masquait. Sa bordure est reculée derrière le trajet ; seule l’eau réelle du bassin occupe le bassin.
+- Au fond du bassin, les pieds sortaient du cadre (projection verticale -1.0015). La caméra accompagne progressivement la descente et la remontée ; tête et pieds sont contenus dans le cadre en paysage aux trois rapports contrôlés.
+
+## Vérification
+
+297 tests Node réussis, journal docs/validation-player-audit.txt. Parcours serre complet : 60,65 s en solution connue, terminé sans chute ; ce temps ne mesure pas la découverte. Anciens checkpoints, hydraulique, retours, pauses, sauts, répétition d’une remontée et matrices Three.js vérifiés. Essais des deux échelles à 30/60 Hz, bassin à 0/.15/.5/.7, absence de traversée des berges pendant la remontée. Tests CPU de cadrage en 16/9, 844/390 et 4/3.
+
+Deux rendus Blender CPU de contrôle conservés : rampe et bassin vide corrigé. Ils ne sont pas des captures WebGL. Nouvelle ouverture du preview géré dans Chromium cloud : chargement du module serre-art.mjs?v=70, création de contexte refusée avec GL_VENDOR Disabled. Aucun essai iPhone physique, mesure FPS GPU ou écoute critique du mix. La remontée reste une animation cinématique à affiner visuellement dans le vrai moteur.
+
+## Sources et suite
+
+Sources étudiées dans cette passe : logique, maillage et contrôles du dépôt actuel, puis rendus de contrôle des scénarios reproduits. Références Playdead antérieures conservées dans FOREST-REFERENCE.md ; aucune nouvelle vidéo vue, aucun nouvel extrait audio ni timecode revendiqué. Le travail porte ici sur la causalité physique et la récupération, pas sur une équivalence à INSIDE.
+
+Les cinq prototypes restent courts ; forêt encore dérivée du Convoi, matériaux et poses demandent du travail. Prochaine priorité : poursuite de l’audit des passages réellement joués et enrichissement substantiel de la première moitié forestière. Aucun nouveau niveau dans cette passe. Préserver serre, éclairages, premiers plans, sauvegardes, Sites privé et miroir public autorisé ; Noël inchangé.
+
+---
+
 # 14 novembre, 22 h : contact continu sur le tablier forestier
 
 Source Sites 68 récupérée par le workflow, commit 49432c2a3637bce89f852698746e3a3455c6513f, dépôt propre et verrou nominatif. Avant d’étendre la première moitié forestière, un essai d’attente a révélé un blocage du passage ajouté à la passe précédente.
