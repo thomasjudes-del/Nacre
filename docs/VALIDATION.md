@@ -1,3 +1,9 @@
+## 14 novembre, 22 h : rester sur la passerelle pendant son rappel
+
+Un défaut réel de la lisière est corrigé : le tablier restait visible, mais son sol disparaissait à 82 % d’abaissement. L’appui suit désormais toute la rotation du bois et son extrémité réelle ; la pente entraîne progressivement le personnage vers la charnière. Le mur invisible à l’entrée est supprimé. Attente, saut et demi-tour vérifiés à 30/60 Hz ; 292 tests réussis et route forestière entière sans capture en 49,93 s. Aucun contenu ni durée ajoutés dans cette réparation. Rendu Blender CPU inspecté, pas de nouvelle validation WebGL ni d’essai iPhone.
+
+---
+
 ## 14 novembre : passerelle suspendue après le lac forestier
 
 La lisière se prolonge par un ravin : dérouler le treuil pour abaisser le tablier, traverser avant son rappel lent, puis serrer le frein sur la rive opposée pour sécuriser le retour. Sixième checkpoint après le lac, anciennes sauvegardes conservées. 289 tests réussis, parcours connu complet de 50,10 s sans capture. Blender CPU inspecté ; nouvel essai cloud refusé par WebGL (GL_VENDOR Disabled). Pas de test iPhone ni d’écoute critique. Le prologue reste court et demande encore un enrichissement important.

@@ -1,3 +1,29 @@
+# 14 novembre, 22 h : contact continu sur le tablier forestier
+
+Source Sites 68 récupérée par le workflow, commit 49432c2a3637bce89f852698746e3a3455c6513f, dépôt propre et verrou nominatif. Avant d’étendre la première moitié forestière, un essai d’attente a révélé un blocage du passage ajouté à la passe précédente.
+
+## Reproduction et changement effectif
+
+Depuis le checkpoint 6, placer le personnage sur le tablier à x7800, abaissement .83, puis attendre quatre secondes : avant correction, une mort et un retour à x7320 alors que le bois est encore sous les pieds. Le sol était supprimé dès que l’abaissement passait sous .82. L’affirmation précédente de correspondance pente/sol était donc incomplète.
+
+Le sol suit maintenant l’angle et la longueur projetée réels du tablier à tous ses degrés d’ouverture. Le passager est emporté par la rotation à distance constante de la charnière, puis peut marcher, sauter ou glisser vers celle-ci lorsque la pente augmente. La portion au-delà du bout du bois n’offre plus de support fantôme. Suppression du poteau de collision invisible à l’entrée ; la pente forte empêche l’ascension au lieu d’un mur sans équivalent visible. Frein, treuil, reprise locale et sauvegardes conservés. Cache de la logique invalidé dans l’entrée HTML.
+
+## Source étudiée
+
+https://blog.playdead.com/articles/inside_presentations/inside_publications.html : index documentaire primaire relu, avec A Game That Listens, Unbreaking Immersion et les présentations sur les subtilités. Lecture de texte uniquement ; aucune nouvelle vidéo, aucun photogramme, aucun son ni timecode revendiqué. Application propre à NACRE : garder une conséquence physique lisible et continue entre le support visible et le corps. L’algorithme du tablier n’est pas attribué à Playdead. Étude antérieure conservée dans FOREST-REFERENCE.md.
+
+## Contrôles et limites
+
+292 tests Node réussis, journal docs/validation-forest-contact.txt. Nouveaux cas à 30/60 Hz : attendre sur le tablier qui remonte sans mort arbitraire, sauter et revenir sur la berge, vérifier le bout réel aux abaissements 0/.25/.5/.81/.82/.83/1, entrer sans poteau invisible. Les tests existants couvrent traversée, frein, retour, chute/reprise, pause et anciens checkpoints. Parcours forestier entier avec pilote dédié : 49,93 s, terminé, zéro capture. Ce temps de solution connue n’est pas une durée de découverte. Aucun allongement annoncé.
+
+Rendu Blender CPU exporté depuis la scène Three.js puis inspecté à x7900, conservé dans captures/forest-contact-cpu.png : tablier, berges et personnage visibles ensemble. L’image ne valide pas la dynamique, la collision étant contrôlée par simulation. Aucun nouvel essai navigateur dans cette passe ; dernier essai cloud à 21 h : GL_VENDOR Disabled. Aucun essai iPhone physique, FPS GPU ou écoute critique du mix. La simulation reste cinématique, pas un solveur de cordes.
+
+## Reprise
+
+Cette passe répare un blocage réel, elle ne livre pas une nouvelle séquence. La forêt reste courte, sa première moitié dérive encore du Convoi et son décor manque d’organique. Prochaine livraison majeure : observation et menace avec conséquence physique originale dans cette première moitié, en préservant le passage après le lac. Le mandat serre/prologue ambitieux n’est pas achevé. Conserver les lumières, premiers plans, événements vivants, remplissage des cuves, trois autres mondes et sauvegardes. Synchroniser Sites privé et le miroir public autorisé, sans toucher Noël ni créer d’automatisation.
+
+---
+
 # 14 novembre, 21 h : passage suspendu dans la lisière
 
 Source Sites 67 récupérée via le workflow, commit 8a6099adf75a89e83233259d207938547c572d2b, dépôt propre et verrou nominatif. Objectif : ajouter une séquence propre à la forêt après la fuite et le lac, avec manipulation, anticipation et retour possible.
