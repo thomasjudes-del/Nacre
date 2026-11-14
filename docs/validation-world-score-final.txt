@@ -1,0 +1,12 @@
+✔ conservatory music follows real search and chase events, not translated x coordinates (75.176362ms)
+✔ new worlds have distinct scores and events change them (0.235839ms)
+✔ crossfades are gradual, pause freezes them, 30/60 Hz reach the same gain (1.239885ms)
+✔ recorded score starts four local tracks, pauses/resumes them, persists mute/volume and emits no rejected clicks (3.73073ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 247.175351

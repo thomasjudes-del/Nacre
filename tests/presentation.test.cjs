@@ -1,0 +1,8 @@
+const test=require('node:test'),assert=require('node:assert/strict'),P=require('../dist/presentation.js'),L=require('../dist/logic.js');
+function run(s,n,input){for(let i=0;i<n;i++)L.step(s,input,1/60);}
+test('touch portrait requires rotation while desktop and landscape remain playable',()=>{assert(P.landscapeRequired(true,390,844));assert(!P.landscapeRequired(true,844,390));assert(!P.landscapeRequired(false,390,844));});
+test('render interpolation smooths position without changing simulation or puzzle state',()=>{const s=L.createState();s.x=200;s.y=510;const v=P.interpolate({x:190,y:500},s,.5);assert.equal(v.x,195);assert.equal(v.y,505);assert.equal(s.x,200);assert.equal(v.seed,s.seed);});
+test('checkpoint teleports never interpolate across missing terrain',()=>{const s=L.createState();assert.equal(P.interpolate({x:3200,y:680},s,.5),s);});
+test('light closes the introductory plant, hiding opens it before the timed bridge',()=>{const s=L.createState();s.started=true;s.seed='held';s.x=660;run(s,60,{right:true});assert(s.x<=L.C.firstIris-25);assert(!s.firstPassed);run(s,100,{right:true,veil:true});assert(s.firstPassed);assert(s.firstIris>.95);});
+test('introductory plant retains its opening once crossed and does not trap a returning player',()=>{const s=L.createState();s.started=true;s.seed='held';s.x=810;s.firstPassed=true;run(s,80,{left:true});assert(s.x<700);assert(s.firstIris>.99);});
+test('mirror contact settles at the handle and movement can still leave it',()=>{const s=L.createState();s.started=true;s.seed='socket';s.x=L.C.mirror+48;s.face=-1;run(s,100,{veil:true});assert(Math.abs((s.handleX-s.x)*s.face-27)<1);run(s,60,{right:true,veil:true});assert(s.x>L.C.mirror+100);assert(!s.guiding);assert(s.mirrorAngle<.01);});

@@ -1,0 +1,2 @@
+import fs from 'node:fs';import {createRequire} from 'node:module';import {worldScene} from './inspect-worlds.mjs';import {snapshot} from './inspect-3d.mjs';
+const require=createRequire(import.meta.url),L=require('../dist/world-logic.js'),art=await worldScene(),s=L.createState();s.checkpoint=3;L.restart(s);for(let i=0;i<200;i++){L.step(s,{axis:1,hold:true});art.render(s);}fs.writeFileSync(process.argv[2]||'/tmp/mobile.json',JSON.stringify(snapshot(art)));

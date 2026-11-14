@@ -1,0 +1,3 @@
+import fs from 'node:fs';import {createRequire} from 'node:module';import {worldScene} from './inspect-worlds.mjs';import {snapshot} from './inspect-3d.mjs';
+const require=createRequire(import.meta.url),L=require('../dist/world-logic.js'),art=await worldScene(),{frames}=require('../tests/frontier-route.cjs').route('red',true,L),stage=process.argv[2]||'fill';
+for(const s of frames){art.render(s);if(stage==='fill'?s.braking&&s.ferryFill>.65:s.x>4360){fs.writeFileSync(process.argv[3]||'/tmp/transfer.json',JSON.stringify(snapshot(art)));console.log(JSON.stringify({stage,x:s.x,fill:s.ferryFill,gate:s.exitGate,time:s.time}));break;}}

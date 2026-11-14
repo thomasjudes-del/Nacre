@@ -1,0 +1,15 @@
+const test=require('node:test'),assert=require('node:assert/strict'),L=require('../dist/logic.js');
+function play(x){const s=L.createState();s.started=true;s.seed='held';s.x=x;s.checkpoint=3250;s.across=true;s.escaped=true;return s;}function run(s,t,input={}){for(let i=0;i<t*60;i++)L.step(s,input,1/60);}
+test('closed sluice is a wall, including during a jump',()=>{const s=play(4140);run(s,1,{right:true,jump:true});assert(s.x<=L.C.sluice-25);});
+test('carriage requires held contact; pulling activates the counterweight',()=>{const s=play(L.C.cartStart-68);run(s,2.1,{left:true,veil:true});assert(s.cartX<L.C.cartStart-200);assert(s.grabbing);run(s,2);assert(s.weightOn);assert(s.sluice>.87);});
+test('releasing grab stops the carriage and restores ordinary motion',()=>{const s=play(L.C.cartStart-68);run(s,.5,{left:true,veil:true});run(s,.3);assert(!s.grabbing);assert.equal(s.cartV,0);});
+test('moving carriage away closes the sluice again',()=>{const s=play(3480);s.cartX=L.C.plate;run(s,2);assert(s.sluice>.87);s.cartX=3800;run(s,3);assert(s.sluice<.1);});
+test('light awakens a resonator while hiding cannot charge it',()=>{const s=play(L.C.signals[0]);run(s,1,{veil:true});assert.equal(s.signals[0],0);s.watchTime=0;run(s,2.2);assert.equal(s.signals[0],1);});
+test('exposure during observation causes a checkpoint retry',()=>{const s=play(4820);s.watchTime=3.7;s.watchTarget=s.x;s.checkpoint=4480;run(s,1.3);assert.equal(s.fallCount,1);run(s,1.5);assert.equal(s.x,4480);assert.equal(s.watchAlert,0);});
+test('hiding and architectural shelter each prevent detection',()=>{for(const shelter of [false,true]){const s=play(shelter?L.C.shelters[0]:4820);s.watchTime=3.7;s.watchTarget=s.x;if(!shelter)s.veil=1;run(s,2,{veil:!shelter});assert.equal(s.fallCount,0);assert.equal(s.watchAlert,0);}});
+test('both resonators are required to cross the final membrane',()=>{const s=play(L.C.watchEnd-70);s.signals=[1,0];run(s,.4,{right:true,veil:true});assert(s.x<=L.C.watchEnd-25);s.signals=[1,1];run(s,.6,{right:true,veil:true});assert(s.watchPassed);});
+test('completed resonator stays latched while a partial charge dissipates',()=>{const s=play(5210);s.signals=[1,.7];run(s,3,{veil:true});assert.equal(s.signals[0],1);assert(s.signals[1]<.5);});
+test('counterweight raises lift and recall lowers it temporarily',()=>{const s=play(L.C.liftLever);s.cartX=L.C.plate;run(s,2);assert.equal(s.lift,1);run(s,.02,{interact:true});run(s,1.7);assert.equal(s.lift,0);run(s,3);assert.equal(s.lift,1);});
+test('lift carries a grounded rider to the terrace height',()=>{const s=play(4050);s.cartX=L.C.plate;run(s,2);assert.equal(s.lift,1);assert.equal(s.y,370);assert(s.onGround);run(s,.8,{right:true});assert(s.x>4140);assert.equal(s.y,370);});
+test('raised lift cannot be traversed from below',()=>{const s=play(3900);s.cartX=L.C.plate;s.weightOn=true;s.lift=1;run(s,1,{right:true});assert(s.x<=3955);assert.equal(s.y,510);});
+test('walking back after the listening hall cannot regress a checkpoint',()=>{const s=play(5800);s.checkpoint=6020;s.watchPassed=true;s.signals=[1,1];run(s,.5);assert.equal(s.checkpoint,6020);});

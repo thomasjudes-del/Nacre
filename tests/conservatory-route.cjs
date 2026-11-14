@@ -1,0 +1,2 @@
+const fs=require('node:fs'),vm=require('node:vm'),L=require('../dist/conservatory-logic.js');
+function route(capture=false){const ctx={window:{NacreConservatoryLogic:L}};vm.runInNewContext(fs.readFileSync('dist/conservatory-pilot.js','utf8'),ctx);const pilot=ctx.window.NacreConservatoryPilot(),s=L.createState(),frames=[];for(let i=0;i<9000&&!s.finished;i++){const input=pilot(s);L.step(s,input);if(capture)frames.push({input,state:structuredClone(s)});}return{s,frames};}module.exports={route};if(require.main===module)console.log(route().s);

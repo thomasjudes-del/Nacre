@@ -1,0 +1,2 @@
+const test=require('node:test'),assert=require('node:assert/strict'),shots=require('../trailer/edit-v3.json');
+test('V3 never repeats a source interval and uses all four playable scenes',()=>{assert.deepEqual([...new Set(shots.map(s=>s.m))].sort(),['conv','desert','main','red']);for(let i=0;i<shots.length;i++){const a=shots[i];assert.equal(a.b-a.a,a.d);for(const b of shots.slice(i+1))if(a.m===b.m)assert.ok(a.b<=b.a||b.b<=a.a,JSON.stringify([a,b]));}assert.equal(shots.reduce((sum,s)=>sum+s.d,0),46.5);assert.ok(shots.slice(-4).every(s=>s.d===.5));});

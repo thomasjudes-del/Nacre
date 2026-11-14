@@ -1,0 +1,2 @@
+import fs from 'node:fs';import {createRequire} from 'node:module';import {worldScene} from './inspect-worlds.mjs';import {snapshot} from './inspect-3d.mjs';
+const require=createRequire(import.meta.url),L=require('../dist/world-logic.js'),art=await worldScene(),s=L.createState();s.checkpoint=4;L.restart(s);s.x=process.argv[2]==='rest'?8660:8030;s.crustTime=process.argv[2]==='rest'?3:2.2;s.y=s.x>8420?600:L.crust.sample(s).y;for(let i=0;i<90;i++)art.render(s);fs.writeFileSync(process.argv[3]||'/tmp/crust.json',JSON.stringify(snapshot(art)));

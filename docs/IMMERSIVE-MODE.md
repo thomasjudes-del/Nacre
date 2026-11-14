@@ -1,0 +1,7 @@
+# Mode jeu web
+
+Les pages conservatoire et mondes remplissent le viewport disponible en 100dvh, avec commandes à deux pouces et marges des zones sûres. Le bouton plein écran appelle l'API du navigateur lors d'un geste utilisateur, uniquement si elle existe. Un refus affiche l'aide et met le jeu en pause. Le démarrage d'une partie tente également le plein écran, sans bloquer la partie si cette capacité manque.
+
+Sur iPhone : ouvrir dans Safari, Partager, Sur l'écran d'accueil, activer « Ouvrir comme app web », puis Ajouter. Lancer depuis l'icône NACRE. Le manifest local demande standalone et landscape, avec icônes 192/512 et métadonnées Apple. La rotation reste aussi gérée par l'écran de paysage existant. Une page ne peut pas supprimer elle-même les barres de la fenêtre intégrée à ChatGPT. Aucun emballage natif ni accès App Store.
+
+Source primaire : https://support.apple.com/en-az/guide/iphone/iphea86e5236/26/ios/26, documentation iOS 26 lue. Support effectif du plein écran détecté, pas déduit du nom du navigateur. L'aide a été ouverte dans le navigateur cloud après refus de sa demande plein écran. L'installation sur un iPhone physique n'a pas été testée. Aucun service worker, aucune promesse de jeu hors ligne. Audience privée inchangée, une connexion au site peut rester nécessaire. Les mêmes clés de sauvegarde sont conservées ; leur transfert entre Safari et une nouvelle app web n'a pas été vérifié.
