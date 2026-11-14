@@ -1,3 +1,17 @@
+# 14 novembre, reprise 17 h : sillage du bassin
+
+Source Sites 63 récupérée via le workflow, commit f425d55badacb155b5b2a034fd3a087e7fa6c718. Dépôt propre et verrou nominatif avant édition. Objectif : remplacer l’anneau de nage collé au personnage par une trace de son déplacement dans l’eau.
+
+Les ondulations sont désormais laissées à leur position de naissance, s’élargissent et s’effacent en 2,2 secondes. Le déplacement réel déclenche leur émission ; un arrêt n’en crée plus, un demi-tour laisse les anciennes derrière lui. Douze maillages réutilisés bornent le coût. Pause, reprise, téléportation et retour du temps remettent correctement cet historique local ; rien n’est ajouté aux sauvegardes. Les quatre éclaboussures d’entrée restent présentes. Collisions, commandes, remontée et musique inchangées.
+
+266 tests réussis dans validation-water-wake.txt, dont trois tests du sillage : positions fixes, retour, arrêt, pause, berge, reprise et parcours complet simulé sans mort. La suite couvre aussi les autres passages et sauvegardes. Nouveau contrôle Chromium cloud : création du contexte WebGL refusée, GL_VENDOR Disabled. Aucun contournement, aucune validation GPU ou iPhone. Rendu Blender CPU du bassin inspecté (captures/wake-cpu.png dans Sites) : composition et personnage visibles, mais les anneaux sont trop discrets dans cet export pour valider leur apparence. Le convertisseur transforme les matériaux non éclairés Three en matériaux éclairés Blender ; ce rendu n’est pas une capture du jeu. Pas d’écoute critique dans cette passe.
+
+Sources lues : index primaire https://blog.playdead.com/articles/inside_presentations/inside_publications.html, notices des présentations sur les effets discrets ; https://origin.ludo.guide/guide/inside/chapter-25, texte du passage échelle/passerelle puis observation des gardes à couvert. Lecture textuelle uniquement, aucune vidéo, transcription ou série de photogrammes nouvelle ; aucun timecode disponible. Leçon appliquée propre à NACRE : une trace physique discrète persiste après le geste puis rend la place au calme. Le sillage n’est pas présenté comme un effet observé dans INSIDE. Aucun asset Playdead importé.
+
+Cette passe améliore le retour visuel de la nage, sans ajouter de séquence ni d’énigme. Les trois passages restent courts. Prochaine priorité : réaliser la séquence physique réversible du conservatoire avec refuge utile et conséquence visible ; vérifier auparavant le sillage sur un moteur WebGL disponible. Mandat de trois ambiances, privé Sites et copie publique autorisée conservés. Aucun achat, nouvelle automation ou modification Noël/social.
+
+---
+
 # 14 novembre, reprise 16 h : traction de caisse contre le mur
 
 Source Sites 62 récupérée via le workflow, commit 2d556e2cc9f37e4b4afcbdc4ae78d6bb642cac08. Dépôt propre et verrou nominatif. Avant extension, défaut physique reproduit en tirant la caisse depuis son côté droit vers le mur : le personnage s’arrêtait à x2578 mais la caisse avançait jusqu’à x2538, réduisant leur séparation de 65 à 40 unités et pénétrant dans le corps. Trois tests échouaient avant correction.
