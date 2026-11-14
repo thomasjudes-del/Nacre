@@ -1,3 +1,11 @@
+# NACRE : version de test publique
+
+- Jouer : https://confluenceofminds.com/nacre/play/
+- Présentation : https://confluenceofminds.com/nacre/
+- Retours et bugs : https://github.com/thomasjudes-del/Nacre/issues
+
+Le jeu existant a été transféré depuis Sites avec ses assets locaux, ses tests et ses notes. Le site de test est hébergé sur Confluence of Minds, depuis ce dépôt. Voir docs/GITHUB-HOSTING.md pour les mises à jour et limites. Les sauvegardes Sites ne se transfèrent pas automatiquement à cette adresse. Le trailer de Noël reste hors périmètre.
+
 ## 14 novembre : causalité sonore corrigée
 
 La musique de rafale s’efface progressivement sous les abris, y compris l’abri mobile. Plus de nouveaux grincements dus au seul maintien d’une commande immobile ; effort respiratoire lié au déplacement réel et à la poussée. 234 tests réussis, parcours et reprises conservés. WebGL cloud indisponible ; aucune écoute critique. Pas de nouveau niveau dans cette passe, extension après les refuges toujours prioritaire. Voir ITERATION.md pour les sources et limites.
